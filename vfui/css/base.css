@@ -1,0 +1,237 @@
+/**
+ * VFUI - Base CSS
+ * CSS Reset, Typography, dan Base Styles
+ */
+
+/* ========================================
+   CSS RESET
+   ======================================== */
+
+/* Use :where() for low specificity reset */
+:where(*),
+:where(*::before),
+:where(*::after) {
+  box-sizing: border-box;
+}
+
+:where(*) {
+  margin: 0;
+  padding: 0;
+}
+
+:where(html) {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+:where(body) {
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+:where(h1) { font-size: var(--font-size-4xl); }
+:where(h2) { font-size: var(--font-size-3xl); }
+:where(h3) { font-size: var(--font-size-2xl); }
+:where(h4) { font-size: var(--font-size-xl); }
+:where(h5) { font-size: var(--font-size-lg); }
+:where(h6) { font-size: var(--font-size-base); }
+
+:where(p) {
+  margin-block-end: var(--space-4);
+}
+
+:where(a) {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+:where(a):hover {
+  color: var(--text-link-hover);
+}
+
+/* Focus visible for accessibility */
+:where(:focus-visible) {
+  outline: var(--outline-width) solid var(--border-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Remove default focus outline for mouse users */
+:where(:focus):not(:focus-visible) {
+  outline: none;
+}
+
+/* Lists */
+:where(ul, ol) {
+  list-style: none;
+}
+
+/* Images */
+:where(img, picture, video, canvas, svg) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form elements */
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+}
+
+:where(button) {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Tables */
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ========================================
+   TYPOGRAPHY CLASSES
+   ======================================== */
+
+/* Headings */
+.ui-text--h1,
+.ui-text--h2,
+.ui-text--h3,
+.ui-text--h4,
+.ui-text--h5,
+.ui-text--h6 {
+  margin-block-end: var(--space-4);
+  color: var(--text-primary);
+}
+
+.ui-text--h1 { font-size: var(--font-size-4xl); font-weight: var(--font-weight-bold); }
+.ui-text--h2 { font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); }
+.ui-text--h3 { font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold); }
+.ui-text--h4 { font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); }
+.ui-text--h5 { font-size: var(--font-size-lg); font-weight: var(--font-weight-medium); }
+.ui-text--h6 { font-size: var(--font-size-base); font-weight: var(--font-weight-medium); }
+
+/* Body text */
+.ui-text--body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  margin-block-end: var(--space-4);
+}
+
+.ui-text--small {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin-block-end: var(--space-2);
+}
+
+.ui-text--tiny {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* Text colors */
+.ui-text--primary { color: var(--text-primary); }
+.ui-text--secondary { color: var(--text-secondary); }
+.ui-text--muted { color: var(--text-muted); }
+.ui-text--inverse { color: var(--text-inverse); }
+.ui-text--link { color: var(--text-link); }
+
+/* Text alignment */
+.ui-text--left { text-align: left; }
+.ui-text--center { text-align: center; }
+.ui-text--right { text-align: right; }
+.ui-text--justify { text-align: justify; }
+
+/* Font weights */
+.ui-text--light { font-weight: var(--font-weight-light); }
+.ui-text--normal { font-weight: var(--font-weight-normal); }
+.ui-text--medium { font-weight: var(--font-weight-medium); }
+.ui-text--semibold { font-weight: var(--font-weight-semibold); }
+.ui-text--bold { font-weight: var(--font-weight-bold); }
+
+/* Text transforms */
+.ui-text--uppercase { text-transform: uppercase; letter-spacing: var(--letter-spacing-wide); }
+.ui-text--lowercase { text-transform: lowercase; }
+.ui-text--capitalize { text-transform: capitalize; }
+
+/* Line heights */
+.ui-text--tight { line-height: var(--line-height-tight); }
+.ui-text--snug { line-height: var(--line-height-snug); }
+.ui-text--normal { line-height: var(--line-height-normal); }
+.ui-text--relaxed { line-height: var(--line-height-relaxed); }
+.ui-text--loose { line-height: var(--line-height-loose); }
+
+/* Lists */
+.ui-list {
+  margin-block-end: var(--space-4);
+  padding-inline-start: var(--space-6);
+}
+
+.ui-list--disc { list-style-type: disc; }
+.ui-list--decimal { list-style-type: decimal; }
+.ui-list--square { list-style-type: square; }
+.ui-list--circle { list-style-type: circle; }
+
+.ui-list__item {
+  margin-block-end: var(--space-2);
+  color: var(--text-primary);
+}
+
+/* Blockquote */
+.ui-blockquote {
+  margin-block-end: var(--space-4);
+  padding-inline-start: var(--space-4);
+  border-inline-start: var(--radius-md) solid var(--primary);
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* Code */
+.ui-code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  background: var(--primary-fade);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+}
+
+.ui-code--block {
+  display: block;
+  padding: var(--space-4);
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  margin-block-end: var(--space-4);
+}
+
+/* Horizontal rule */
+.ui-divider {
+  border: none;
+  border-top: var(--border-width) solid var(--border-color);
+  margin-block: var(--space-6);
+}
+
+.ui-divider--vertical {
+  display: inline-block;
+  width: var(--border-width);
+  height: 1em;
+  vertical-align: middle;
+  border-top: none;
+  border-inline-start: var(--border-width) solid var(--border-color);
+}

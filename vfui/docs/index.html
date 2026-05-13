@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFUI - Framework Dokumentasi</title>
+  <!-- VFUI CSS -->
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/variables.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/base.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/core.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/button.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/form.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/card.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/modules.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/menu.css">
+  <style>
+    /* Documentation specific styles */
+    .docs-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+    
+    .docs-sidebar {
+      width: 260px;
+      background: var(--bg-white);
+      border-right: 1px solid var(--border-color);
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      transition: transform 0.3s ease;
+    }
+    
+    .docs-sidebar__header {
+      padding: var(--space-4) var(--space-6);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .docs-sidebar__logo {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--primary);
+    }
+    
+    .docs-sidebar__nav {
+      padding: var(--space-4);
+    }
+    
+    .docs-nav-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .docs-nav-group__title {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semibold);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-1);
+    }
+    
+    .docs-nav-group__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .docs-nav-item {
+      display: block;
+      padding: var(--space-2) var(--space-3);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: var(--font-size-sm);
+      border-radius: var(--radius-md);
+      transition: all 0.15s ease;
+    }
+    
+    .docs-nav-item:hover {
+      background: var(--bg-light);
+      color: var(--text-primary);
+    }
+    
+    .docs-nav-item--active {
+      background: var(--primary-fade);
+      color: var(--primary);
+      font-weight: var(--font-weight-medium);
+    }
+    
+    .docs-main {
+      flex: 1;
+      margin-left: 260px;
+      padding: var(--space-8);
+    }
+    
+    .docs-content {
+      max-width: 900px;
+    }
+    
+    .docs-content h1 {
+      font-size: var(--font-size-4xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .docs-content h2 {
+      font-size: var(--font-size-2xl);
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .docs-content h3 {
+      font-size: var(--font-size-xl);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+    }
+    
+    .docs-content p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
+    }
+    
+    .docs-content code {
+      font-family: var(--font-family-mono);
+      background: var(--bg-light);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9em;
+    }
+    
+    .docs-content pre {
+      background: var(--bg-dark);
+      color: var(--text-inverse);
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      margin-bottom: var(--space-6);
+    }
+    
+    .docs-content pre code {
+      background: none;
+      padding: 0;
+      color: inherit;
+    }
+    
+    .docs-example {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+      background: var(--bg-white);
+    }
+    
+    .docs-example__title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--text-muted);
+      margin-bottom: var(--space-4);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .docs-code-block {
+      position: relative;
+      margin-bottom: var(--space-6);
+    }
+    
+    .docs-code-block__copy {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-2);
+      padding: var(--space-1) var(--space-2);
+      font-size: var(--font-size-xs);
+      background: var(--bg-light);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    
+    .docs-code-block:hover .docs-code-block__copy {
+      opacity: 1;
+    }
+    
+    /* Theme toggle */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      background: var(--bg-light);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+    }
+    
+    .theme-toggle__icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Mobile sidebar */
+    .docs-sidebar-toggle {
+      display: none;
+      position: fixed;
+      top: var(--space-4);
+      left: var(--space-4);
+      z-index: 101;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+    }
+    
+    @media (max-width: 768px) {
+      .docs-sidebar {
+        transform: translateX(-100%);
+      }
+      
+      .docs-sidebar--open {
+        transform: translateX(0);
+      }
+      
+      .docs-sidebar-toggle {
+        display: flex;
+      }
+      
+      .docs-main {
+        margin-left: 0;
+        padding: var(--space-6);
+        padding-top: calc(var(--space-6) + 3rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar Toggle (Mobile) -->
+  <button class="docs-sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="docs-sidebar" id="sidebar">
+      <div class="docs-sidebar__header">
+        <span class="docs-sidebar__logo">VFUI</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="theme-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      </div>
+      
+      <nav class="docs-sidebar__nav">
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Getting Started</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="index.html" class="docs-nav-item docs-nav-item--active">Introduction</a></li>
+            <li><a href="#" class="docs-nav-item">Installation</a></li>
+            <li><a href="#" class="docs-nav-item">Quick Start</a></li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Elements</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="components/button.html" class="docs-nav-item">Button</a></li>
+            <li><a href="components/container.html" class="docs-nav-item">Container</a></li>
+            <li><a href="components/divider.html" class="docs-nav-item">Divider</a></li>
+            <li><a href="components/header.html" class="docs-nav-item">Header</a></li>
+            <li><a href="components/icon.html" class="docs-nav-item">Icon</a></li>
+            <li><a href="components/image.html" class="docs-nav-item">Image</a></li>
+            <li><a href="components/input.html" class="docs-nav-item">Input</a></li>
+            <li><a href="components/label.html" class="docs-nav-item">Label</a></li>
+            <li><a href="components/list.html" class="docs-nav-item">List</a></li>
+            <li><a href="components/loader.html" class="docs-nav-item">Loader</a></li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Collections</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="components/breadcrumb.html" class="docs-nav-item">Breadcrumb</a></li>
+            <li><a href="components/form.html" class="docs-nav-item">Form</a></li>
+            <li><a href="components/grid.html" class="docs-nav-item">Grid</a></li>
+            <li><a href="components/menu.html" class="docs-nav-item">Menu</a></li>
+            <li><a href="components/message.html" class="docs-nav-item">Message</a></li>
+            <li><a href="components/table.html" class="docs-nav-item">Table</a></li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Views</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="components/advertisement.html" class="docs-nav-item">Advertisement</a></li>
+            <li><a href="components/card.html" class="docs-nav-item">Card</a></li>
+            <li><a href="components/comment.html" class="docs-nav-item">Comment</a></li>
+            <li><a href="components/feed.html" class="docs-nav-item">Feed</a></li>
+            <li><a href="components/item.html" class="docs-nav-item">Item</a></li>
+            <li><a href="components/statistic.html" class="docs-nav-item">Statistic</a></li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Modules</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="components/accordion.html" class="docs-nav-item">Accordion</a></li>
+            <li><a href="components/checkbox.html" class="docs-nav-item">Checkbox</a></li>
+            <li><a href="components/dimmer.html" class="docs-nav-item">Dimmer</a></li>
+            <li><a href="components/dropdown.html" class="docs-nav-item">Dropdown</a></li>
+            <li><a href="components/embed.html" class="docs-nav-item">Embed</a></li>
+            <li><a href="components/modal.html" class="docs-nav-item">Modal</a></li>
+            <li><a href="components/popup.html" class="docs-nav-item">Popup</a></li>
+            <li><a href="components/progress.html" class="docs-nav-item">Progress</a></li>
+            <li><a href="components/rating.html" class="docs-nav-item">Rating</a></li>
+            <li><a href="components/search.html" class="docs-nav-item">Search</a></li>
+            <li><a href="components/shape.html" class="docs-nav-item">Shape</a></li>
+            <li><a href="components/sidebar.html" class="docs-nav-item">Sidebar</a></li>
+            <li><a href="components/sticky.html" class="docs-nav-item">Sticky</a></li>
+            <li><a href="components/tab.html" class="docs-nav-item">Tab</a></li>
+            <li><a href="components/transition.html" class="docs-nav-item">Transition</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <h1>VFUI Framework</h1>
+        <p>VFUI adalah framework UI modern yang ringan, tanpa dependensi eksternal, dan dibangun dengan HTML, CSS, dan JavaScript murni. Dirancang untuk developer yang membutuhkan fleksibilitas penuh dengan footprint yang minimal.</p>
+        
+        <h2>Fitur Utama</h2>
+        <ul>
+          <li><strong>Zero Dependencies</strong> - Tidak ada library eksternal, build tools, atau preprocessors</li>
+          <li><strong>Modular</strong> - Pilih dan gunakan hanya komponen yang diperlukan</li>
+          <li><strong>Mobile-First</strong> - Dirancang untuk responsif di semua ukuran layar</li>
+          <li><strong>Accessible</strong> - Mendukung WCAG 2.1 AA dengan focus states dan ARIA</li>
+          <li><strong>Easy to Use</strong> - Declarative initialization dengan <code>data-module</code> attribute</li>
+        </ul>
+        
+        <h2>Quick Start</h2>
+        <p>Gunakan VFUI dengan menambahkan CSS dan JS files ke HTML:</p>
+        
+        <div class="docs-code-block">
+          <pre><code>&lt;!-- CSS --&gt;
+      &lt;link rel="stylesheet" href="vfui/css/variables.css"&gt;
+      &lt;link rel="stylesheet" href="vfui/css/base.css"&gt;
+      &lt;link rel="stylesheet" href="vfui/css/core.css"&gt;
+      &lt;link rel="stylesheet" href="vfui/css/button.css"&gt;
+
+      &lt;!-- JavaScript --&gt;
+      &lt;script src="vfui/js/core.js"&gt;&lt;/script&gt;
+      &lt;script src="vfui/js/modules/accordion.js"&gt;&lt;/script&gt;
+      &lt;script src="vfui/js/modules/modal.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+        
+        <h2>Contoh Penggunaan</h2>
+        
+        <h3>Button</h3>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <button class="ui-button ui-button--primary">Primary</button>
+          <button class="ui-button ui-button--secondary">Secondary</button>
+          <button class="ui-button ui-button--outline">Outline</button>
+          <button class="ui-button ui-button--primary" disabled>Disabled</button>
+        </div>
+        
+        <div class="docs-code-block">
+          <pre><code>&lt;button class="ui-button ui-button--primary"&gt;Primary&lt;/button&gt;
+      &lt;button class="ui-button ui-button--secondary"&gt;Secondary&lt;/button&gt;
+      &lt;button class="ui-button ui-button--outline"&gt;Outline&lt;/button&gt;
+      &lt;button class="ui-button ui-button--primary" disabled&gt;Disabled&lt;/button&gt;</code></pre>
+        </div>
+        
+        <h3>Card</h3>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <div class="ui-card" style="max-width: 300px;">
+            <div class="ui-card__content">
+              <h4 class="ui-card__title">Card Title</h4>
+              <p class="ui-card__description">Ini adalah contoh teks deskripsi untuk card component.</p>
+              <button class="ui-button ui-button--primary ui-button--sm">Action</button>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Modal</h3>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <button class="ui-button ui-button--primary" data-modal-trigger="demo-modal">Open Modal</button>
+        </div>
+        
+        <div class="docs-code-block">
+          <pre><code>&lt;!-- Trigger --&gt;
+&lt;button data-modal-trigger="my-modal"&gt;Open Modal&lt;/button&gt;
+
+&lt;!-- Modal Element --&gt;
+&lt;div class="ui-modal" id="my-modal" data-module="modal"&gt;
+  &lt;div class="ui-modal__backdrop"&gt;&lt;/div&gt;
+  &lt;div class="ui-modal__container"&gt;
+    &lt;div class="ui-modal__header"&gt;
+      &lt;h3 class="ui-modal__title"&gt;Modal Title&lt;/h3&gt;
+      &lt;button class="ui-modal__close"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="ui-modal__body"&gt;
+      Modal content here
+    &lt;/div&gt;
+    &lt;div class="ui-modal__footer"&gt;
+      &lt;button class="ui-button ui-button--outline" data-modal-close&gt;Cancel&lt;/button&gt;
+      &lt;button class="ui-button ui-button--primary"&gt;Confirm&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        
+        <h2>Browser Support</h2>
+        <p>VFUI mendukung semua browser modern:</p>
+        <ul>
+          <li>Chrome 80+</li>
+          <li>Firefox 75+</li>
+          <li>Safari 13+</li>
+          <li>Edge 80+</li>
+        </ul>
+      </div>
+    </main>
+  </div>
+  
+  <!-- Demo Modal -->
+  <div class="ui-modal" id="demo-modal" data-module="modal">
+    <div class="ui-modal__backdrop"></div>
+    <div class="ui-modal__container">
+      <div class="ui-modal__header">
+        <h3 class="ui-modal__title">Modal Demo</h3>
+        <button class="ui-modal__close" aria-label="Close">×</button>
+      </div>
+      <div class="ui-modal__body">
+        <p>Ini adalah contoh modal yang dibuat dengan VFUI. Tekan Escape atau klik backdrop untuk menutup.</p>
+      </div>
+      <div class="ui-modal__footer">
+        <button class="ui-button ui-button--outline" data-modal-close>Cancel</button>
+        <button class="ui-button ui-button--primary">Confirm</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- VFUI JS -->
+  <script src="https://proto.vqf.my.id/vfui/vfui/js/core.js"></script>
+  <script src="https://proto.vqf.my.id/vfui/vfui/js/modules/accordion.js"></script>
+  <script src="https://proto.vqf.my.id/vfui/vfui/js/modules/modal.js"></script>
+  <script src="https://proto.vqf.my.id/vfui/vfui/js/modules/dropdown.js"></script>
+  
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check saved theme
+    const savedTheme = localStorage.getItem('vfui-theme') || 'light';
+    if (savedTheme === 'dark') {
+      html.setAttribute('data-theme', 'dark');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('vfui-theme', newTheme);
+    });
+    
+    // Sidebar toggle (mobile)
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('docs-sidebar--open');
+    });
+    
+    // Close sidebar when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('docs-sidebar--open') && 
+          !sidebar.contains(e.target) && 
+          !sidebarToggle.contains(e.target)) {
+        sidebar.classList.remove('docs-sidebar--open');
+      }
+    });
+  </script>
+</body>
+</html>
