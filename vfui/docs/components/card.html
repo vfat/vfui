@@ -52,6 +52,32 @@
           </ul>
         </div>
         <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Elements</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="button.html" class="docs-nav-item">Button</a></li>
+            <li><a href="container.html" class="docs-nav-item">Container</a></li>
+            <li><a href="divider.html" class="docs-nav-item">Divider</a></li>
+            <li><a href="header.html" class="docs-nav-item">Header</a></li>
+            <li><a href="icon.html" class="docs-nav-item">Icon</a></li>
+            <li><a href="image.html" class="docs-nav-item">Image</a></li>
+            <li><a href="input.html" class="docs-nav-item">Input</a></li>
+            <li><a href="label.html" class="docs-nav-item">Label</a></li>
+            <li><a href="list.html" class="docs-nav-item">List</a></li>
+            <li><a href="loader.html" class="docs-nav-item">Loader</a></li>
+          </ul>
+        </div>
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Collections</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="breadcrumb.html" class="docs-nav-item">Breadcrumb</a></li>
+            <li><a href="form.html" class="docs-nav-item">Form</a></li>
+            <li><a href="grid.html" class="docs-nav-item">Grid</a></li>
+            <li><a href="menu.html" class="docs-nav-item">Menu</a></li>
+            <li><a href="message.html" class="docs-nav-item">Message</a></li>
+            <li><a href="table.html" class="docs-nav-item">Table</a></li>
+          </ul>
+        </div>
+        <div class="docs-nav-group">
           <div class="docs-nav-group__title">Views</div>
           <ul class="docs-nav-group__list">
             <li><a href="advertisement.html" class="docs-nav-item">Advertisement</a></li>
@@ -60,6 +86,26 @@
             <li><a href="feed.html" class="docs-nav-item">Feed</a></li>
             <li><a href="item.html" class="docs-nav-item">Item</a></li>
             <li><a href="statistic.html" class="docs-nav-item">Statistic</a></li>
+          </ul>
+        </div>
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Modules</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="accordion.html" class="docs-nav-item">Accordion</a></li>
+            <li><a href="checkbox.html" class="docs-nav-item">Checkbox</a></li>
+            <li><a href="dimmer.html" class="docs-nav-item">Dimmer</a></li>
+            <li><a href="dropdown.html" class="docs-nav-item">Dropdown</a></li>
+            <li><a href="embed.html" class="docs-nav-item">Embed</a></li>
+            <li><a href="modal.html" class="docs-nav-item">Modal</a></li>
+            <li><a href="popup.html" class="docs-nav-item">Popup</a></li>
+            <li><a href="progress.html" class="docs-nav-item">Progress</a></li>
+            <li><a href="rating.html" class="docs-nav-item">Rating</a></li>
+            <li><a href="search.html" class="docs-nav-item">Search</a></li>
+            <li><a href="shape.html" class="docs-nav-item">Shape</a></li>
+            <li><a href="sidebar.html" class="docs-nav-item">Sidebar</a></li>
+            <li><a href="sticky.html" class="docs-nav-item">Sticky</a></li>
+            <li><a href="tab.html" class="docs-nav-item">Tab</a></li>
+            <li><a href="transition.html" class="docs-nav-item">Transition</a></li>
           </ul>
         </div>
       </nav>
@@ -80,12 +126,12 @@
           </div>
         </div>
         <div class="docs-code-block">
-          <pre><code><div class="ui-card">
-  <div class="ui-card__content">
-    <h3 class="ui-card__title">Judul Card</h3>
-    <p>Ini adalah contoh konten dalam card.</p>
-  </div>
-</div></code></pre>
+          <pre><code>&lt;div class="ui-card"&gt;
+  &lt;div class="ui-card__content"&gt;
+    &lt;h3 class="ui-card__title"&gt;Judul Card&lt;/h3&gt;
+    &lt;p&gt;Ini adalah contoh konten dalam card.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
         
         <h2>Card dengan Image</h2>
@@ -102,15 +148,15 @@
           </div>
         </div>
         <div class="docs-code-block">
-          <pre><code><div class="ui-card">
-  <div class="ui-card__image">
-    <img src="gambar.jpg" alt="Deskripsi">
-  </div>
-  <div class="ui-card__content">
-    <h3 class="ui-card__title">Judul</h3>
-    <p>Deskripsi card.</p>
-  </div>
-</div></code></pre>
+          <pre><code>&lt;div class="ui-card"&gt;
+  &lt;div class="ui-card__image"&gt;
+    &lt;img src="gambar.jpg" alt="Deskripsi"&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-card__content"&gt;
+    &lt;h3 class="ui-card__title"&gt;Judul&lt;/h3&gt;
+    &lt;p&gt;Deskripsi card.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
         
         <h2>Card dengan Header dan Footer</h2>
@@ -130,18 +176,18 @@
           </div>
         </div>
         <div class="docs-code-block">
-          <pre><code><div class="ui-card">
-  <div class="ui-card__header">
-    <h3 class="ui-card__title">Profil Pengguna</h3>
-  </div>
-  <div class="ui-card__content">
-    <p>Nama: John Doe</p>
-    <p>Email: john@contoh.com</p>
-  </div>
-  <div class="ui-card__footer">
-    <button class="ui-button ui-button--primary ui-button--sm">Edit</button>
-  </div>
-</div></code></pre>
+          <pre><code>&lt;div class="ui-card"&gt;
+  &lt;div class="ui-card__header"&gt;
+    &lt;h3 class="ui-card__title"&gt;Profil Pengguna&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-card__content"&gt;
+    &lt;p&gt;Nama: John Doe&lt;/p&gt;
+    &lt;p&gt;Email: john@contoh.com&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-card__footer"&gt;
+    &lt;button class="ui-button ui-button--primary ui-button--sm"&gt;Edit&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
         
         <h2>Horizontal Card</h2>
@@ -158,15 +204,15 @@
           </div>
         </div>
         <div class="docs-code-block">
-          <pre><code><div class="ui-card ui-card--horizontal">
-  <div class="ui-card__image">
-    <img src="gambar.jpg" alt="Deskripsi">
-  </div>
-  <div class="ui-card__content">
-    <h3 class="ui-card__title">Judul</h3>
-    <p>Deskripsi.</p>
-  </div>
-</div></code></pre>
+          <pre><code>&lt;div class="ui-card ui-card--horizontal"&gt;
+  &lt;div class="ui-card__image"&gt;
+    &lt;img src="gambar.jpg" alt="Deskripsi"&gt;
+  &lt;/div&gt;
+  &lt;div class="ui-card__content"&gt;
+    &lt;h3 class="ui-card__title"&gt;Judul&lt;/h3&gt;
+    &lt;p&gt;Deskripsi.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
         </div>
         
       </div>
