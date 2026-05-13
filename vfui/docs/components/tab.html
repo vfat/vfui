@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab - VFUI Dokumentasi</title>
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/variables.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/base.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/core.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/modules.css">
+  <style>
+    .docs-layout { display: flex; min-height: 100vh; }
+    .docs-sidebar { width: 260px; background: var(--bg-white); border-right: 1px solid var(--border-color); position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 100; }
+    .docs-sidebar__header { padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--border-color); }
+    .docs-sidebar__logo { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--primary); }
+    .docs-sidebar__nav { padding: var(--space-4); }
+    .docs-nav-group { margin-bottom: var(--space-6); }
+    .docs-nav-group__title { font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; padding: var(--space-2) var(--space-3); margin-bottom: var(--space-1); }
+    .docs-nav-group__list { list-style: none; padding: 0; margin: 0; }
+    .docs-nav-item { display: block; padding: var(--space-2) var(--space-3); color: var(--text-secondary); text-decoration: none; font-size: var(--font-size-sm); border-radius: var(--radius-md); transition: all 0.15s ease; }
+    .docs-nav-item:hover { background: var(--bg-light); color: var(--text-primary); }
+    .docs-nav-item--active { background: var(--primary-fade); color: var(--primary); font-weight: var(--font-weight-medium); }
+    .docs-main { flex: 1; margin-left: 260px; padding: var(--space-8); }
+    .docs-content { max-width: 900px; }
+    .docs-content h1 { font-size: var(--font-size-4xl); margin-bottom: var(--space-4); }
+    .docs-content h2 { font-size: var(--font-size-2xl); margin-top: var(--space-8); margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-color); }
+    .docs-content h3 { font-size: var(--font-size-xl); margin-top: var(--space-6); margin-bottom: var(--space-3); }
+    .docs-content p { color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); }
+    .docs-example { border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-6); margin-bottom: var(--space-6); background: var(--bg-white); }
+    .docs-example__title { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--text-muted); margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em; }
+    .docs-code-block { position: relative; margin-bottom: var(--space-6); }
+    .docs-code-block pre { background: var(--bg-dark); color: var(--text-inverse); padding: var(--space-4); border-radius: var(--radius-lg); overflow-x: auto; }
+    .docs-code-block pre code { font-family: var(--font-family-mono); font-size: var(--font-size-sm); }
+    .theme-toggle { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); background: var(--bg-light); border-radius: var(--radius-full); cursor: pointer; }
+    @media (max-width: 768px) { .docs-sidebar { transform: translateX(-100%); } .docs-sidebar--open { transform: translateX(0); } .docs-main { margin-left: 0; padding: var(--space-6); } }
+  </style>
+</head>
+<body>
+  <div class="docs-layout">
+    <aside class="docs-sidebar" id="sidebar">
+      <div class="docs-sidebar__header">
+        <span class="docs-sidebar__logo">VFUI</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+        </button>
+      </div>
+      <nav class="docs-sidebar__nav">
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Getting Started</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="../index.html" class="docs-nav-item">Introduction</a></li>
+          </ul>
+        </div>
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Modules</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="accordion.html" class="docs-nav-item">Accordion</a></li>
+            <li><a href="checkbox.html" class="docs-nav-item">Checkbox</a></li>
+            <li><a href="dimmer.html" class="docs-nav-item">Dimmer</a></li>
+            <li><a href="dropdown.html" class="docs-nav-item">Dropdown</a></li>
+            <li><a href="embed.html" class="docs-nav-item">Embed</a></li>
+            <li><a href="modal.html" class="docs-nav-item">Modal</a></li>
+            <li><a href="popup.html" class="docs-nav-item">Popup</a></li>
+            <li><a href="progress.html" class="docs-nav-item">Progress</a></li>
+            <li><a href="rating.html" class="docs-nav-item">Rating</a></li>
+            <li><a href="search.html" class="docs-nav-item">Search</a></li>
+            <li><a href="shape.html" class="docs-nav-item">Shape</a></li>
+            <li><a href="sidebar.html" class="docs-nav-item">Sidebar</a></li>
+            <li><a href="sticky.html" class="docs-nav-item">Sticky</a></li>
+            <li><a href="tab.html" class="docs-nav-item docs-nav-item--active">Tab</a></li>
+            <li><a href="transition.html" class="docs-nav-item">Transition</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+    <main class="docs-main">
+      <div class="docs-content">
+        <h1>Tab</h1>
+        <p>Tab adalah komponen untuk membuat navigasi antar konten yang berbeda dalam area yang sama. VFUI menyediakan tab dengan berbagai style dan animasi.</p>
+        
+        <h2>Tab Dasar</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <div class="ui-tab" data-module="tab">
+            <div class="ui-tab__list">
+              <button class="ui-tab__item ui-tab__item--active" data-tab="tab1">Tab 1</button>
+              <button class="ui-tab__item" data-tab="tab2">Tab 2</button>
+              <button class="ui-tab__item" data-tab="tab3">Tab 3</button>
+            </div>
+            <div class="ui-tab__panels">
+              <div class="ui-tab__panel ui-tab__panel--active" id="tab1">
+                <p>Konten Tab 1</p>
+              </div>
+              <div class="ui-tab__panel" id="tab2">
+                <p>Konten Tab 2</p>
+              </div>
+              <div class="ui-tab__panel" id="tab3">
+                <p>Konten Tab 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-tab" data-module="tab">
+  <div class="ui-tab__list">
+    <button class="ui-tab__item ui-tab__item--active" data-tab="tab1">Tab 1</button>
+    <button class="ui-tab__item" data-tab="tab2">Tab 2</button>
+    <button class="ui-tab__item" data-tab="tab3">Tab 3</button>
+  </div>
+  <div class="ui-tab__panels">
+    <div class="ui-tab__panel ui-tab__panel--active" id="tab1">
+      <p>Konten Tab 1</p>
+    </div>
+    <div class="ui-tab__panel" id="tab2">
+      <p>Konten Tab 2</p>
+    </div>
+    <div class="ui-tab__panel" id="tab3">
+      <p>Konten Tab 3</p>
+    </div>
+  </div>
+</div></code></pre>
+        </div>
+        
+        <h2>Bottom Tab</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <div class="ui-tab ui-tab--bottom" data-module="tab">
+            <div class="ui-tab__panels">
+              <div class="ui-tab__panel ui-tab__panel--active" id="tab4">
+                <p>Konten Tab Bawah 1</p>
+              </div>
+              <div class="ui-tab__panel" id="tab5">
+                <p>Konten Tab Bawah 2</p>
+              </div>
+            </div>
+            <div class="ui-tab__list">
+              <button class="ui-tab__item ui-tab__item--active" data-tab="tab4">Tab 1</button>
+              <button class="ui-tab__item" data-tab="tab5">Tab 2</button>
+            </div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-tab ui-tab--bottom" data-module="tab">
+  <div class="ui-tab__panels">
+    <div class="ui-tab__panel ui-tab__panel--active" id="tab4">...</div>
+    <div class="ui-tab__panel" id="tab5">...</div>
+  </div>
+  <div class="ui-tab__list">
+    <button class="ui-tab__item" data-tab="tab4">Tab 1</button>
+    <button class="ui-tab__item" data-tab="tab5">Tab 2</button>
+  </div>
+</div></code></pre>
+        </div>
+        
+        <h2>Vertical Tab</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <div class="ui-tab ui-tab--vertical" data-module="tab" style="display: flex; gap: var(--space-4);">
+            <div class="ui-tab__list" style="flex-direction: column;">
+              <button class="ui-tab__item ui-tab__item--active" data-tab="tab6">Menu 1</button>
+              <button class="ui-tab__item" data-tab="tab7">Menu 2</button>
+              <button class="ui-tab__item" data-tab="tab8">Menu 3</button>
+            </div>
+            <div class="ui-tab__panels" style="flex: 1;">
+              <div class="ui-tab__panel ui-tab__panel--active" id="tab6">
+                <p>Konten Menu 1</p>
+              </div>
+              <div class="ui-tab__panel" id="tab7">
+                <p>Konten Menu 2</p>
+              </div>
+              <div class="ui-tab__panel" id="tab8">
+                <p>Konten Menu 3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-tab ui-tab--vertical" data-module="tab" style="display: flex; gap: var(--space-4);">
+  <div class="ui-tab__list" style="flex-direction: column;">
+    <button class="ui-tab__item ui-tab__item--active" data-tab="tab6">Menu 1</button>
+    <button class="ui-tab__item" data-tab="tab7">Menu 2</button>
+  </div>
+  <div class="ui-tab__panels" style="flex: 1;">
+    <div class="ui-tab__panel ui-tab__panel--active" id="tab6">...</div>
+    <div class="ui-tab__panel" id="tab7">...</div>
+  </div>
+</div></code></pre>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+  <script src="https://proto.vqf.my.id/vfui/js/core.js"></script>
+  <script src="https://proto.vqf.my.id/vfui/js/modules/tab.js"></script>
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('vfui-theme');
+    if (savedTheme) html.setAttribute('data-theme', savedTheme);
+    themeToggle?.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('vfui-theme', next);
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.UI) UI.init();
+    });
+  </script>
+</body>
+</html>

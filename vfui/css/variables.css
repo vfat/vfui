@@ -1,0 +1,218 @@
+/**
+ * VFUI - Variables CSS
+ * Color palette, spacing scale, typography, dan custom properties lainnya
+ */
+
+/* ========================================
+   COLOR PALETTE
+   ======================================== */
+
+:root {
+  /* Primary Colors */
+  --primary: #FF7F3E;
+  --primary-hover: #e66a2a;
+  --primary-active: #cc5a1f;
+  --primary-light: #ffb080;
+  --primary-fade: rgba(255, 127, 62, 0.15);
+
+  /* Background Colors */
+  --bg-light: #FFF6E9;
+  --bg-white: #FFFFFF;
+  --bg-dark: #1a1a2e;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Secondary Colors */
+  --secondary-blue: #80C4E9;
+  --secondary-blue-hover: #5fb3de;
+  --secondary-blue-active: #4a9cc9;
+  --secondary-blue-light: #b3dcf2;
+  --secondary-blue-fade: rgba(128, 196, 233, 0.15);
+
+  /* Accent Colors */
+  --accent-purple: #604CC3;
+  --accent-purple-hover: #4d3a9e;
+  --accent-purple-active: #3d2f82;
+  --accent-purple-light: #8a7bd4;
+  --accent-purple-fade: rgba(96, 76, 195, 0.15);
+
+  /* Success Colors */
+  --success-green: #B5E18B;
+  --success-green-hover: #a3d175;
+  --success-green-active: #8fc05e;
+  --success-green-light: #d4ecc0;
+  --success-green-fade: rgba(181, 225, 139, 0.15);
+
+  /* Semantic Colors */
+  --text-primary: #1a1a2e;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+  --text-link: var(--primary);
+  --text-link-hover: var(--primary-hover);
+
+  /* State Colors */
+  --error: #ef4444;
+  --error-light: #fecaca;
+  --warning: #f59e0b;
+  --warning-light: #fde68a;
+  --info: #3b82f6;
+  --info-light: #bfdbfe;
+  --success: #22c55e;
+  --success-light: #bbf7d0;
+
+  /* Border Colors */
+  --border-color: #e5e7eb;
+  --border-color-dark: #d1d5db;
+  --border-color-light: #f3f4f6;
+  --border-focus: var(--primary);
+  --border-error: var(--error);
+
+  /* Shadow Colors */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color-dark: rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -1px var(--shadow-color);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-color-dark), 0 10px 10px -5px var(--shadow-color);
+
+  /* ========================================
+     SPACING SCALE
+     ======================================== */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;       /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-7: 1.75rem;   /* 28px */
+  --space-8: 2rem;       /* 32px */
+  --space-9: 2.25rem;   /* 36px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-14: 3.5rem;   /* 56px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;  /* 2px */
+  --radius-md: 0.25rem;   /* 4px */
+  --radius-lg: 0.375rem;  /* 6px */
+  --radius-xl: 0.5rem;    /* 8px */
+  --radius-2xl: 0.75rem;  /* 12px */
+  --radius-3xl: 1rem;     /* 16px */
+  --radius-full: 9999px;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  --font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-none: 1;
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+
+  /* ========================================
+     BREAKPOINTS
+     ======================================== */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+  --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* ========================================
+     CONTAINER SIZES
+     ======================================== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* ========================================
+     MISC
+     ======================================== */
+  --border-width: 1px;
+  --border-width-2: 2px;
+  --outline-width: 2px;
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --bg-light: #1a1a2e;
+  --bg-white: #16213e;
+  --bg-dark: #0f0f23;
+  
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --text-inverse: #1a1a2e;
+  
+  --border-color: #374151;
+  --border-color-dark: #4b5563;
+  --border-color-light: #1f2937;
+  
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+    --transition-bounce: 0ms;
+  }
+}

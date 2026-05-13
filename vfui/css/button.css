@@ -1,0 +1,305 @@
+/**
+ * VFUI - Button Component CSS
+ * Button dengan variants, sizes, dan states
+ */
+
+/* ========================================
+   BUTTON BASE
+   ======================================== */
+
+.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ui-button:disabled,
+.ui-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Focus state for keyboard navigation */
+.ui-button:focus-visible {
+  outline: var(--outline-width) solid var(--border-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ========================================
+   BUTTON VARIANTS
+   ======================================== */
+
+/* Primary */
+.ui-button--primary {
+  background: var(--primary);
+  color: var(--text-inverse);
+}
+
+.ui-button--primary:hover {
+  background: var(--primary-hover);
+}
+
+.ui-button--primary:active {
+  background: var(--primary-active);
+}
+
+/* Secondary */
+.ui-button--secondary {
+  background: var(--secondary-blue);
+  color: var(--text-primary);
+}
+
+.ui-button--secondary:hover {
+  background: var(--secondary-blue-hover);
+}
+
+.ui-button--secondary:active {
+  background: var(--secondary-blue-active);
+}
+
+/* Outline */
+.ui-button--outline {
+  background: transparent;
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.ui-button--outline:hover {
+  background: var(--bg-light);
+  border-color: var(--border-color-dark);
+}
+
+.ui-button--outline:active {
+  background: var(--border-color);
+}
+
+/* Outline Primary */
+.ui-button--outline-primary {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.ui-button--outline-primary:hover {
+  background: var(--primary-fade);
+}
+
+.ui-button--outline-primary:active {
+  background: var(--primary-light);
+}
+
+/* Ghost */
+.ui-button--ghost {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.ui-button--ghost:hover {
+  background: var(--bg-light);
+}
+
+.ui-button--ghost:active {
+  background: var(--border-color);
+}
+
+/* Danger */
+.ui-button--danger {
+  background: var(--error);
+  color: var(--text-inverse);
+}
+
+.ui-button--danger:hover {
+  background: #dc2626;
+}
+
+.ui-button--danger:active {
+  background: #b91c1c;
+}
+
+/* Success */
+.ui-button--success {
+  background: var(--success);
+  color: var(--text-inverse);
+}
+
+.ui-button--success:hover {
+  background: #16a34a;
+}
+
+.ui-button--success:active {
+  background: #15803d;
+}
+
+/* ========================================
+   BUTTON SIZES
+   ======================================== */
+
+.ui-button--sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+}
+
+.ui-button--lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-xl);
+}
+
+.ui-button--xl {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-xl);
+  border-radius: var(--radius-xl);
+}
+
+/* ========================================
+   BUTTON ICON
+   ======================================== */
+
+.ui-button__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+.ui-button__icon--left {
+  margin-right: var(--space-1);
+}
+
+.ui-button__icon--right {
+  margin-left: var(--space-1);
+}
+
+/* Icon-only button (square) */
+.ui-button--icon-only {
+  padding: var(--space-2);
+  aspect-ratio: 1;
+}
+
+.ui-button--icon-only.ui-button--sm {
+  padding: var(--space-1);
+}
+
+.ui-button--icon-only.ui-button--lg {
+  padding: var(--space-3);
+}
+
+.ui-button--icon-only.ui-button--xl {
+  padding: var(--space-4);
+}
+
+/* ========================================
+   BUTTON GROUP
+   ======================================== */
+
+.ui-button-group {
+  display: inline-flex;
+  gap: 0;
+}
+
+.ui-button-group .ui-button {
+  border-radius: 0;
+  margin-left: calc(var(--border-width) * -1);
+}
+
+.ui-button-group .ui-button:first-child {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  margin-left: 0;
+}
+
+.ui-button-group .ui-button:last-child {
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+.ui-button-group .ui-button:hover {
+  z-index: 1;
+}
+
+.ui-button-group .ui-button:focus-visible {
+  z-index: 2;
+}
+
+/* ========================================
+   ATTACHED BUTTONS
+   ======================================== */
+
+.ui-buttons--attached {
+  display: flex;
+  gap: 0;
+}
+
+.ui-buttons--attached > .ui-button {
+  border-radius: 0;
+}
+
+.ui-buttons--attached > .ui-button:first-child {
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.ui-buttons--attached > .ui-button:last-child {
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* ========================================
+   BUTTON STATES
+   ======================================== */
+
+/* Loading state */
+.ui-button--loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.ui-button--loading::after {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: ui-button-spin 0.6s linear infinite;
+}
+
+.ui-button--loading.ui-button--primary::after,
+.ui-button--loading.ui-button--secondary::after {
+  border-color: var(--text-inverse);
+  border-top-color: transparent;
+}
+
+@keyframes ui-button-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Active/Pressed state */
+.ui-button--active {
+  transform: scale(0.98);
+}
+
+/* ========================================
+   RESPONSIVE BUTTON
+   ======================================== */
+
+@media (max-width: 640px) {
+  .ui-button--fluid {
+    width: 100%;
+  }
+}

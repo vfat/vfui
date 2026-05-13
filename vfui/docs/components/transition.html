@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transition - VFUI Dokumentasi</title>
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/variables.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/base.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/core.css">
+  <link rel="stylesheet" href="https://proto.vqf.my.id/vfui/vfui/css/modules.css">
+  <style>
+    .docs-layout { display: flex; min-height: 100vh; }
+    .docs-sidebar { width: 260px; background: var(--bg-white); border-right: 1px solid var(--border-color); position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 100; }
+    .docs-sidebar__header { padding: var(--space-4) var(--space-6); border-bottom: 1px solid var(--border-color); }
+    .docs-sidebar__logo { font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); color: var(--primary); }
+    .docs-sidebar__nav { padding: var(--space-4); }
+    .docs-nav-group { margin-bottom: var(--space-6); }
+    .docs-nav-group__title { font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; padding: var(--space-2) var(--space-3); margin-bottom: var(--space-1); }
+    .docs-nav-group__list { list-style: none; padding: 0; margin: 0; }
+    .docs-nav-item { display: block; padding: var(--space-2) var(--space-3); color: var(--text-secondary); text-decoration: none; font-size: var(--font-size-sm); border-radius: var(--radius-md); transition: all 0.15s ease; }
+    .docs-nav-item:hover { background: var(--bg-light); color: var(--text-primary); }
+    .docs-nav-item--active { background: var(--primary-fade); color: var(--primary); font-weight: var(--font-weight-medium); }
+    .docs-main { flex: 1; margin-left: 260px; padding: var(--space-8); }
+    .docs-content { max-width: 900px; }
+    .docs-content h1 { font-size: var(--font-size-4xl); margin-bottom: var(--space-4); }
+    .docs-content h2 { font-size: var(--font-size-2xl); margin-top: var(--space-8); margin-bottom: var(--space-4); padding-bottom: var(--space-2); border-bottom: 1px solid var(--border-color); }
+    .docs-content h3 { font-size: var(--font-size-xl); margin-top: var(--space-6); margin-bottom: var(--space-3); }
+    .docs-content p { color: var(--text-secondary); line-height: 1.7; margin-bottom: var(--space-4); }
+    .docs-example { border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: var(--space-6); margin-bottom: var(--space-6); background: var(--bg-white); }
+    .docs-example__title { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--text-muted); margin-bottom: var(--space-4); text-transform: uppercase; letter-spacing: 0.05em; }
+    .docs-code-block { position: relative; margin-bottom: var(--space-6); }
+    .docs-code-block pre { background: var(--bg-dark); color: var(--text-inverse); padding: var(--space-4); border-radius: var(--radius-lg); overflow-x: auto; }
+    .docs-code-block pre code { font-family: var(--font-family-mono); font-size: var(--font-size-sm); }
+    .theme-toggle { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2); background: var(--bg-light); border-radius: var(--radius-full); cursor: pointer; }
+    @media (max-width: 768px) { .docs-sidebar { transform: translateX(-100%); } .docs-sidebar--open { transform: translateX(0); } .docs-main { margin-left: 0; padding: var(--space-6); } }
+    .demo-transition-box { width: 100px; height: 100px; background: var(--primary); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: var(--font-weight-medium); }
+  </style>
+</head>
+<body>
+  <div class="docs-layout">
+    <aside class="docs-sidebar" id="sidebar">
+      <div class="docs-sidebar__header">
+        <span class="docs-sidebar__logo">VFUI</span>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle></svg>
+        </button>
+      </div>
+      <nav class="docs-sidebar__nav">
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Getting Started</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="../index.html" class="docs-nav-item">Introduction</a></li>
+          </ul>
+        </div>
+        <div class="docs-nav-group">
+          <div class="docs-nav-group__title">Modules</div>
+          <ul class="docs-nav-group__list">
+            <li><a href="accordion.html" class="docs-nav-item">Accordion</a></li>
+            <li><a href="checkbox.html" class="docs-nav-item">Checkbox</a></li>
+            <li><a href="dimmer.html" class="docs-nav-item">Dimmer</a></li>
+            <li><a href="dropdown.html" class="docs-nav-item">Dropdown</a></li>
+            <li><a href="embed.html" class="docs-nav-item">Embed</a></li>
+            <li><a href="modal.html" class="docs-nav-item">Modal</a></li>
+            <li><a href="popup.html" class="docs-nav-item">Popup</a></li>
+            <li><a href="progress.html" class="docs-nav-item">Progress</a></li>
+            <li><a href="rating.html" class="docs-nav-item">Rating</a></li>
+            <li><a href="search.html" class="docs-nav-item">Search</a></li>
+            <li><a href="shape.html" class="docs-nav-item">Shape</a></li>
+            <li><a href="sidebar.html" class="docs-nav-item">Sidebar</a></li>
+            <li><a href="sticky.html" class="docs-nav-item">Sticky</a></li>
+            <li><a href="tab.html" class="docs-nav-item">Tab</a></li>
+            <li><a href="transition.html" class="docs-nav-item docs-nav-item--active">Transition</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+    <main class="docs-main">
+      <div class="docs-content">
+        <h1>Transition</h1>
+        <p>Transition adalah komponen untuk memberikan animasi pada elemen. VFUI menyediakan berbagai jenis animasi yang dapat digunakan.</p>
+        
+        <h2>Fade Transition</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview - Klik untuk animasi</div>
+          <button class="ui-button ui-button--primary" onclick="toggleTransition('fadeDemo', 'fade')">Toggle Fade</button>
+          <div class="ui-transition ui-transition--fade" id="fadeDemo" style="margin-top: var(--space-4);">
+            <div class="demo-transition-box">Fade</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-transition ui-transition--fade" id="demoFade">
+  <div class="demo-box">Fade</div>
+</div>
+
+<script>
+// Toggle transition via JavaScript
+document.getElementById('demoFade').classList.add('ui-transition--visible');
+</script></code></pre>
+        </div>
+        
+        <h2>Scale Transition</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview - Klik untuk animasi</div>
+          <button class="ui-button ui-button--primary" onclick="toggleTransition('scaleDemo', 'scale')">Toggle Scale</button>
+          <div class="ui-transition ui-transition--scale" id="scaleDemo" style="margin-top: var(--space-4);">
+            <div class="demo-transition-box">Scale</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-transition ui-transition--scale" id="demoScale">
+  <div class="demo-box">Scale</div>
+</div></code></pre>
+        </div>
+        
+        <h2>Slide Transition</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview - Klik untuk animasi</div>
+          <button class="ui-button ui-button--primary" onclick="toggleTransition('slideDemo', 'slide')">Toggle Slide</button>
+          <div class="ui-transition ui-transition--slide" id="slideDemo" style="margin-top: var(--space-4);">
+            <div class="demo-transition-box">Slide</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-transition ui-transition--slide" id="demoSlide">
+  <div class="demo-box">Slide</div>
+</div></code></pre>
+        </div>
+        
+        <h2>Flip Transition</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview - Klik untuk animasi</div>
+          <button class="ui-button ui-button--primary" onclick="toggleTransition('flipDemo', 'flip')">Toggle Flip</button>
+          <div class="ui-transition ui-transition--flip" id="flipDemo" style="margin-top: var(--space-4);">
+            <div class="demo-transition-box">Flip</div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-transition ui-transition--flip" id="demoFlip">
+  <div class="demo-box">Flip</div>
+</div></code></pre>
+        </div>
+        
+        <h2>Transition States</h2>
+        <div class="docs-example">
+          <div class="docs-example__title">Preview</div>
+          <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+            <div class="ui-transition ui-transition--fade ui-transition--visible">
+              <div class="demo-transition-box" style="width: 60px; height: 60px; font-size: 10px;">Visible</div>
+            </div>
+            <div class="ui-transition ui-transition--fade ui-transition--hidden">
+              <div class="demo-transition-box" style="width: 60px; height: 60px; font-size: 10px;">Hidden</div>
+            </div>
+            <div class="ui-transition ui-transition--loading">
+              <div class="demo-transition-box" style="width: 60px; height: 60px; font-size: 10px;">
+                <div class="ui-loader ui-loader--sm"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="docs-code-block">
+          <pre><code><div class="ui-transition ui-transition--visible">...</div>
+<div class="ui-transition ui-transition--hidden">...</div>
+<div class="ui-transition ui-transition--loading">...</div></code></pre>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+  <script src="https://proto.vqf.my.id/vfui/js/core.js"></script>
+  <script src="https://proto.vqf.my.id/vfui/js/modules/transition.js"></script>
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('vfui-theme');
+    if (savedTheme) html.setAttribute('data-theme', savedTheme);
+    themeToggle?.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('vfui-theme', next);
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.UI) UI.init();
+    });
+    function toggleTransition(id, type) {
+      const el = document.getElementById(id);
+      el.classList.toggle('ui-transition--visible');
+    }
+  </script>
+</body>
+</html>
